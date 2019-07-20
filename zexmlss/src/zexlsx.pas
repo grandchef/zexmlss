@@ -583,7 +583,7 @@ end; //GetCurrentPageCommentsNumber
 
 procedure TXSLXZipHelper.DoCreateOutZipStream(Sender: TObject; var AStream: TStream; AItem: TFullZipFileEntry);
 begin
-  {$ifdef MSWINDOWS}
+  {$ifndef MSWINDOWS}
   AStream := TTmpFileStream.Create();
   {$else}
   AStream := TMemoryStream.Create();
@@ -7330,7 +7330,7 @@ var
     end
     else
     begin
-      {$ifdef MSWINDOWS}
+      {$ifndef MSWINDOWS}
       Result := TTmpFileStream.Create();
       {$else}
       Result := TMemoryStream.Create();

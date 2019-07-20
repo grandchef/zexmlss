@@ -49,6 +49,7 @@ contains
   zeSaveXLSX in '..\..\src\zeSaveXLSX.pas',
   zeZippy in '..\..\src\zeZippy.pas',
   zeZippyXE2 in '..\..\src\zeZippyXE2.pas',
-  zenumberformats in '..\..\src\zenumberformats.pas';
+  zenumberformats in '..\..\src\zenumberformats.pas',
+  zeZipper in '..\..\src\zeZipper.pas';
 
 end.

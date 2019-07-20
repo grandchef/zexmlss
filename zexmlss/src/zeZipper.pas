@@ -190,7 +190,7 @@ type
     FOnStartFile : TOnStartFileEvent;
     {$ifdef KAZIP}procedure ReadKaZip(AExtract: Boolean);{$endif}
     {$ifdef JCL7Z}procedure ReadJCL7Z(AExtract: Boolean);{$endif}
-    {$ifdef XE2ZIP}procedure ReadXE2Zip();{$endif}
+    {$ifdef XE2ZIP}procedure ReadXE2Zip(AExtract: Boolean);{$endif}
   protected
     procedure ReadZip(AExtract: Boolean);
     procedure UnZipOneFile(Item: TFullZipFileEntry); virtual;
@@ -953,6 +953,7 @@ end;
 procedure TUnZipper.ReadXE2Zip(AExtract: Boolean);
 var
   zip: TZipFile;
+  LocalHeader: TZipHeader;
   i: Integer;
   Item: TZipFileEntry;
   TmpStream: TStream;
@@ -970,7 +971,7 @@ begin
           // stream created inside zip.Read() and destroyed outside
           //OnCreateStream(Self, TmpStream, (Item as TFullZipFileEntry));
           try
-            zip.Read(i, TmpStream);
+            zip.Read(i, TmpStream, LocalHeader);
           finally
             OnDoneStream(Self, TmpStream, (Item as TFullZipFileEntry));
           end;

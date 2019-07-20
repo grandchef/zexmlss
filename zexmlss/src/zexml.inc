@@ -23,10 +23,10 @@
 { use Delphi XE2 and above }
 {$if CompilerVersion >= 23.0}         // bds xe2 (2012)
   {$define XE2ZIP}
-{$ifend}
-
+{$else}
 { use KaZip (recommended) ) }
 {$define KAZIP}
+{$ifend}
 
 { use JEDI Code Library (via 7z) }
 {//$define JCL7Z}
